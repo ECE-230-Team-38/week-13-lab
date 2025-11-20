@@ -1,6 +1,7 @@
 module one_hot(
     input w,
     input clk,
+    input rst,
     output z,
     output Astate_out,
     output Bstate_out,
@@ -15,6 +16,7 @@ module one_hot(
         .Default(1'b1),
         .D(Anext),
         .clk(clk),
+        .reset(rst),
         .Q(Astate)
     );
 
@@ -22,6 +24,7 @@ module one_hot(
         .Default(1'b0),
         .D(Bnext),
         .clk(clk),
+        .reset(rst),
         .Q(Bstate)
     );
 
@@ -29,6 +32,7 @@ module one_hot(
         .Default(1'b0),
         .D(Cnext),
         .clk(clk),
+        .reset(rst),
         .Q(Cstate)
     );
 
@@ -36,6 +40,7 @@ module one_hot(
         .Default(1'b0),
         .D(Dnext),
         .clk(clk),
+        .reset(rst),
         .Q(Dstate)
     );
 
@@ -43,6 +48,7 @@ module one_hot(
         .Default(1'b0),
         .D(Enext),
         .clk(clk),
+        .reset(rst),
         .Q(Estate)
     );
 

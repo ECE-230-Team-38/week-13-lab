@@ -1,7 +1,7 @@
 module top(
     input btnC,
     input btnU,
-    input [0:0] sw,
+    input sw,
     output [9:0] led
 );
 
@@ -11,8 +11,9 @@ module top(
     wire [2:0] BinState;
 
     one_hot u_onehot (
-        .w(sw[0]),
+        .w(sw),
         .clk(btnC),
+        .rst(btnU),
         .z(oh_z),
         .Astate_out(Astate),
         .Bstate_out(Bstate),
@@ -22,8 +23,9 @@ module top(
     );
 
     binary u_binary (
-        .w(sw[0]),
+        .w(sw),
         .clk(btnC),
+        .rst(btnU),
         .z(bin_z),
         .State_out(BinState)
     );
